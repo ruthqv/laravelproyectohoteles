@@ -1,0 +1,25 @@
+
+body{
+	background: #101010;
+}
+.main.container{
+	background: white;
+}
+
+footer{
+	background: #101010;
+	color:white;
+}
+
+#logo{
+	max-width: 50px;
+}
+
+.minheight{
+	min-height: 190px;
+}
+
+img.center{
+	float:none;
+	margin:auto;
+}
