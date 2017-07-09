@@ -19,12 +19,23 @@ Auth::routes();
 
 Route::get('/backend', 'BackendController@index')->name('backend');
 
-Route::post('payment', array(
-	'as' => 'payment',
-	'uses' => 'BookingController@process',
-));
+Route::any('payment', 'BookingController@process')->name('payment');
 
-Route::get('payment/status', array(
-	'as' => 'payment.status',
-	'uses' => 'PaypalController@getPaymentStatus',
-));
+Route::any('paypal', 'PaypalController@postPayment')->name('paypal');
+
+Route::get('payment/status', 'PaypalController@getPaymentStatus')->name('payment.status');
+
+Route::any('redsys', 'RedsysController@index')->name('redsys');
+
+Route::any('thankyou','ThankyouController@index')->name('thankyou');
+
+
+Route::get('errorpayment', function()
+	{
+		return view('frontend.errorpayment');
+	});
+// Route::prefix('admin')->group(function () {
+//     Route::get('users', function () {
+//         // Matches The "/admin/users" URL
+//     });
+// });

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "810b72d8a7a02818b55789a94f98b73d",
+    "content-hash": "7fbd04065c7ab923e883199a9f9c27f6",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1088,6 +1088,54 @@
                 "uuid"
             ],
             "time": "2017-03-26T20:37:53+00:00"
+        },
+        {
+            "name": "ssheduardo/redsys-laravel",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ssheduardo/redsys-laravel.git",
+                "reference": "d81d72601b6d06b7d528b46ab68f3481e087ad50"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ssheduardo/redsys-laravel/zipball/d81d72601b6d06b7d528b46ab68f3481e087ad50",
+                "reference": "d81d72601b6d06b7d528b46ab68f3481e087ad50",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.*",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ssheduardo\\Redsys\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": ":Eduardo D",
+                    "email": "ssh.eduardo@gmail.com",
+                    "homepage": "http://ubublog.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Package redsys for laravel 5.1",
+            "homepage": "https://github.com/ssheduardo/redsys-laravel",
+            "keywords": [
+                "lacaixa",
+                "pasarela",
+                "payment",
+                "redsys",
+                "sabadell",
+                "tpv"
+            ],
+            "time": "2017-06-28T23:55:43+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

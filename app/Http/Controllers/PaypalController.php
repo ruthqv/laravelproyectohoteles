@@ -39,10 +39,9 @@ class PaypalController extends BaseController
 
     }
 
-    public function postPayment()
+    public function postPayment(Request $request)
     {
-        
-
+  
 
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
@@ -55,7 +54,8 @@ class PaypalController extends BaseController
         $details = new Details();
       
 
-        $total = '10.0';
+        $total = $request->input('price');
+        $operationid = $request->input('operationid');
 
         $amount = new Amount();
         $amount->setCurrency($currency)
@@ -87,12 +87,15 @@ class PaypalController extends BaseController
 
         // add payment ID to session
         \Session::put('paypalid', $payment->getId());
+       \Session::put('operationid', $operationid);
+
         $approvalUrl = $payment->getApprovalLink();
         if(isset($approvalUrl)) {
 
-            print_r($payment);
+            // print_r($payment);
             // redirect to paypal
-             return \Redirect::away($approvalUrl);
+            echo json_encode($approvalUrl);
+             // return \Redirect::away($approvalUrl);
         }
 
         // return \Redirect::route('home')
@@ -102,24 +105,27 @@ class PaypalController extends BaseController
 
     public function getPaymentStatus()
     {
-            // Get the payment ID before session clear
+        // Get the payment ID before session clear
         $payment_id = \Input::get('paymentId');
 
-        // clear the session payment ID
-        // \Session::forget('paypal_payment_id');
+        $operationid = \Session::get('operationid');
 
         $payerId = \Input::get('PayerID');
 
         $token = \Input::get('token');
 
+        // clear the session payment ID
+        // \Session::forget('paypal_payment_id');
+
         if (empty($payerId) || empty($token)) {
-            return \Redirect::route('home')
+            return \Redirect::route('errorpayment')
                 ->with('message', 'Hubo un problema al intentar pagar con Paypal');
         }
 
         $payment = Payment::get($payment_id, $this->_api_context);
 
         $execution = new PaymentExecution();
+
         $execution->setPayerId(\Input::get('PayerID'));
 
         $result = $payment->execute($execution, $this->_api_context);
@@ -127,13 +133,20 @@ class PaypalController extends BaseController
 
         if ($result->getState() == 'approved') {
 
+            $opdatas = array(
+                'token'=>$token,
+                'payment_id'=>$payment_id,
+                'payerId' => $payerId,
+                'operationid' => $operationid
+                );
 
-            \Session::forget('cart');
+             \Session::forget('cart');
 
-            return \Redirect::route('home')
+            return \Redirect::route('thankyou', $opdatas)
                 ->with('message', 'Compra realizada de forma correcta');
         }
-        return \Redirect::route('home')
+
+        return \Redirect::route('thankyou')
             ->with('message', 'La compra fue cancelada');
     }
 

@@ -3,7 +3,7 @@
     @include('layouts.partials.nav')
 	
 	@if(\Session::has('message'))
-		@include('layouts.blocks.paypal')
+		@include('layouts.blocks.message')
 	@endif
 	
 </div>        
