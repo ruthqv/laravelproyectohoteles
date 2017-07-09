@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-07-2017 a las 19:06:09
+-- Tiempo de generación: 09-07-2017 a las 11:55:08
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -30,15 +30,113 @@ CREATE TABLE `bookings` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `surname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `NIF/DNI` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date_start_booking` date NOT NULL,
-  `date_end_booking` date NOT NULL,
-  `range_date` int(11) NOT NULL,
-  `notes` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `NIF/DNI` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date_start_booking` date DEFAULT NULL,
+  `date_end_booking` date DEFAULT NULL,
+  `range_date` int(11) DEFAULT NULL,
+  `notes` longtext COLLATE utf8mb4_unicode_ci,
   `ammount` double(8,2) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `type_of_payment` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status_of_payment` int(11) DEFAULT NULL,
+  `id_of_payment` text COLLATE utf8mb4_unicode_ci,
+  `hotel_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hotel_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `bookings`
+--
+
+INSERT INTO `bookings` (`id`, `name`, `surname`, `NIF/DNI`, `date_start_booking`, `date_end_booking`, `range_date`, `notes`, `ammount`, `created_at`, `updated_at`, `type_of_payment`, `status_of_payment`, `id_of_payment`, `hotel_name`, `hotel_id`) VALUES
+(1, 'Jett Gleichner', 'fsdfsdfsdfs', NULL, NULL, NULL, NULL, NULL, 30.00, '2017-07-09 03:10:29', '2017-07-09 03:10:29', 'paypal', NULL, NULL, '', ''),
+(2, 'Jett Gleichner', 'fsdfsdfsdfs', NULL, NULL, NULL, NULL, NULL, 30.00, '2017-07-09 03:10:45', '2017-07-09 03:10:45', 'paypal', NULL, NULL, '', ''),
+(3, 'Jett Gleichner', 'dasdasdas', NULL, NULL, NULL, NULL, NULL, 30.00, '2017-07-09 03:12:05', '2017-07-09 03:12:05', 'paypal', NULL, NULL, '', ''),
+(4, 'sasa', 'sasa', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 03:33:49', '2017-07-09 03:33:49', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(5, 'sasassssssssssssssss', 'sasassssssssssssss', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 03:34:25', '2017-07-09 03:34:25', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(6, 'hola', 'hola', NULL, '2017-07-09', '2017-07-15', NULL, NULL, 30.00, '2017-07-09 04:07:20', '2017-07-09 04:07:20', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(7, 'sdddddddddddddddddddd', 'sssssssssssssssssss', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:12:20', '2017-07-09 04:12:20', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(8, 'manolita', 'gomez', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:13:16', '2017-07-09 04:13:16', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(9, 're', 're', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:14:45', '2017-07-09 04:14:45', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(10, 'popo', 'popo', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:15:53', '2017-07-09 04:15:53', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(11, 'ress', 'ress', NULL, '2017-07-09', '2017-07-09', NULL, NULL, 30.00, '2017-07-09 04:16:25', '2017-07-09 04:16:25', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(12, 'ew', 'ew', NULL, '2017-07-09', '2017-07-15', NULL, NULL, 30.00, '2017-07-09 04:17:58', '2017-07-09 04:17:58', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(13, 'pepe', 'lopez', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:18:55', '2017-07-09 04:18:55', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(14, 're', 're', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:20:11', '2017-07-09 04:20:11', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(15, 'manolita', 'jimenez', NULL, '2017-07-15', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 04:23:16', '2017-07-09 04:23:16', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(16, 'manola', 'lopez', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:26:46', '2017-07-09 04:26:46', 'paypal', NULL, NULL, 'Eleanore Ratke', '188'),
+(17, 'pepita', 'lopez', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:28:14', '2017-07-09 04:28:14', 'paypal', NULL, NULL, 'Mrs. Chelsea Steuber', '203'),
+(18, 'miprimera', 'miprimera', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:29:36', '2017-07-09 04:29:36', 'paypal', NULL, NULL, 'Ahmed Koch', '198'),
+(19, 'pepe', 'martin', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:35:00', '2017-07-09 04:35:00', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(20, 'pepe', 'martin', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:35:21', '2017-07-09 04:35:21', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(21, 'rosaldo', 'martin', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:35:46', '2017-07-09 04:35:46', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(22, 'rerer', 'rewrwe', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:36:40', '2017-07-09 04:36:40', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(23, 'rerew', 'rewrwe', NULL, '2017-07-09', '2017-07-09', NULL, NULL, 30.00, '2017-07-09 04:37:18', '2017-07-09 04:37:18', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(24, 'manolete', 'perez', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 04:38:44', '2017-07-09 04:38:44', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(25, 'pepecis', 'mamanu', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:40:02', '2017-07-09 04:40:02', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(26, 'papaune', 'cucurrara', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:40:55', '2017-07-09 04:40:55', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(27, 'popop', 'popopop', NULL, '2017-07-09', '2017-07-09', NULL, NULL, 30.00, '2017-07-09 04:42:21', '2017-07-09 04:42:21', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(28, 'rerse', 'iioioio', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:42:51', '2017-07-09 04:42:51', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(29, 'rwerwe', 'rwerwerwe', NULL, '2017-07-09', '2017-07-09', NULL, NULL, 30.00, '2017-07-09 04:43:41', '2017-07-09 04:43:41', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(30, 'pepecita', 'martin', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:44:20', '2017-07-09 04:44:20', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(31, 'rew', 'sa', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 04:44:58', '2017-07-09 04:44:58', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(32, 'popre', 'porpeo', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:46:05', '2017-07-09 04:46:05', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(33, 'popre', 'porpeo', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:46:09', '2017-07-09 04:46:09', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(34, 'manuel', 'capopo', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:47:53', '2017-07-09 04:47:53', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(35, 'yuyuy', 'uyuyuyu', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:50:59', '2017-07-09 04:50:59', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(36, 'ytuyt', 'uytuytu', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:52:04', '2017-07-09 04:52:04', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(37, 'sssssssss', 'ssssssssss', NULL, '2017-07-09', '2017-07-09', NULL, NULL, 30.00, '2017-07-09 04:53:03', '2017-07-09 04:53:03', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(38, 'popop', 'op', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 04:56:46', '2017-07-09 04:56:46', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(39, 'poreiu', 'uriewoiu', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 04:57:40', '2017-07-09 04:57:40', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(40, 'rew', 'rwe', NULL, '2017-07-09', '2017-07-09', NULL, NULL, 30.00, '2017-07-09 04:58:36', '2017-07-09 04:58:36', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(41, 'resisi', 'iuiui', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 04:59:09', '2017-07-09 04:59:09', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(42, 'pepita', 'perex', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 05:01:42', '2017-07-09 05:01:42', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(43, 'wre', 'rewrew', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 05:02:24', '2017-07-09 05:02:24', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(44, 'wre', 'rewrew', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 05:04:36', '2017-07-09 05:04:36', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(45, 'res', 'res', NULL, '2017-07-09', '2017-07-30', NULL, NULL, 30.00, '2017-07-09 05:06:56', '2017-07-09 05:06:56', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(46, 'res', 'res', NULL, '2017-07-09', '2017-07-30', NULL, NULL, 30.00, '2017-07-09 05:10:01', '2017-07-09 05:10:01', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(47, 'loli', 'lili', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 05:14:42', '2017-07-09 05:14:42', 'redsys', NULL, NULL, 'Eleanore Ratke', '188'),
+(48, 'manolita', 'pepetina', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 05:22:36', '2017-07-09 05:22:36', 'paypal', NULL, NULL, 'Eleanore Ratke', '188'),
+(49, 'pere', 'popo', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 05:30:59', '2017-07-09 05:30:59', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(50, 'pere', 'popo', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 05:49:54', '2017-07-09 05:49:54', 'redsys', NULL, NULL, 'Jett Gleichner', '201'),
+(51, 'pere', 'popo', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 05:51:06', '2017-07-09 05:51:06', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(52, 'pepe', 'torres', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 06:04:56', '2017-07-09 06:04:56', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(53, 'pepita', 'pepota', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 06:11:43', '2017-07-09 06:11:43', 'paypal', NULL, NULL, 'Javier Corwin', '181'),
+(54, 'popopop', 'popopopo', NULL, '2017-07-09', '2017-07-09', NULL, NULL, 30.00, '2017-07-09 06:16:09', '2017-07-09 06:16:09', 'paypal', NULL, NULL, 'Javier Corwin', '181'),
+(55, 'popop', 'opopopopo', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 06:17:50', '2017-07-09 06:17:50', 'paypal', NULL, NULL, 'Tia Walter', '214'),
+(56, 'popop', 'opopop', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 06:18:13', '2017-07-09 06:18:13', 'paypal', NULL, NULL, 'Tia Walter', '214'),
+(57, 'rtrytr', 'ytrytryt', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 06:19:53', '2017-07-09 06:19:53', 'paypal', NULL, NULL, 'Susan Franecki', '176'),
+(58, 'porpo', 'oprewu', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 06:21:10', '2017-07-09 06:21:10', 'paypal', NULL, NULL, 'Nolan Spinka', '199'),
+(59, 'rerere', 'rerere', NULL, '2017-07-09', '2017-07-22', NULL, NULL, 30.00, '2017-07-09 06:22:14', '2017-07-09 06:22:14', 'paypal', NULL, NULL, 'Javier Corwin', '181'),
+(60, 'rewew', 'rew', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 06:24:47', '2017-07-09 06:24:47', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(61, 'rewew', 'rew', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 06:28:19', '2017-07-09 06:28:19', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(62, 'yuyuy', 'uyuyuyu', NULL, '2017-07-02', '2017-07-22', NULL, NULL, 30.00, '2017-07-09 06:30:22', '2017-07-09 06:30:22', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(63, 'ewrWErwe', 'rewrwe', NULL, '2017-07-09', '2017-07-09', NULL, NULL, 30.00, '2017-07-09 06:30:56', '2017-07-09 06:30:56', 'paypal', NULL, NULL, 'Jett Gleichner', '201'),
+(64, 'wrewr', 'rewrew', NULL, '2017-07-14', '2017-07-21', NULL, NULL, 30.00, '2017-07-09 06:31:41', '2017-07-09 06:31:41', 'paypal', NULL, NULL, 'Nolan Spinka', '199'),
+(65, 'rew', 'rew', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 06:32:38', '2017-07-09 06:32:38', 'paypal', NULL, NULL, 'Lexus Nader', '218'),
+(66, 'pepa', 'manolis', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 06:36:38', '2017-07-09 06:36:38', 'redsys', NULL, NULL, 'Mrs. Chelsea Steuber', '203'),
+(67, 'sssssssssss', 'saaa', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 06:37:31', '2017-07-09 06:37:31', 'paypal', NULL, NULL, 'Mrs. Chelsea Steuber', '203'),
+(68, 'e', 'e', NULL, '2017-07-16', '2017-07-30', NULL, NULL, 30.00, '2017-07-09 06:37:47', '2017-07-09 06:37:47', 'redsys', NULL, NULL, 'Jett Gleichner', '201'),
+(69, 'rew', 'rew', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 06:43:40', '2017-07-09 06:43:40', 'redsys', NULL, NULL, 'Nolan Spinka', '199'),
+(70, 'rew', 'rew', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 07:11:37', '2017-07-09 07:11:37', 'redsys', NULL, NULL, 'Mrs. Chelsea Steuber', '203'),
+(71, 'rewew', 'rew', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 07:15:14', '2017-07-09 07:15:14', 'redsys', NULL, NULL, 'Jett Gleichner', '201'),
+(72, 'rewqrew', 'rwe', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 07:18:17', '2017-07-09 07:18:17', 'redsys', NULL, NULL, 'Susan Franecki', '176'),
+(73, 'rewqrew', 'rwe', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 07:19:07', '2017-07-09 07:19:07', 'redsys', NULL, NULL, 'Susan Franecki', '176'),
+(74, 'popo', 'popopop', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 07:22:08', '2017-07-09 07:22:08', 'redsys', NULL, NULL, 'Javier Corwin', '181'),
+(75, 'rewrew', 'rwe', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 07:23:42', '2017-07-09 07:23:42', 'redsys', NULL, NULL, 'Javier Corwin', '181'),
+(76, 'rewrew', 'rwe', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 07:24:23', '2017-07-09 07:24:23', 'redsys', NULL, NULL, 'Javier Corwin', '181'),
+(77, 'rewew', 'wr', NULL, '2017-07-23', '2017-07-29', NULL, NULL, 30.00, '2017-07-09 07:25:30', '2017-07-09 07:25:30', 'redsys', NULL, NULL, 'Javier Corwin', '181'),
+(78, 'rwe', 'rwe', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 07:26:48', '2017-07-09 07:26:48', 'redsys', NULL, NULL, 'Javier Corwin', '181'),
+(79, 'rwe', 'rwe', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 07:27:21', '2017-07-09 07:27:21', 'redsys', NULL, NULL, 'Javier Corwin', '181'),
+(80, 'rwe', 'rwe', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 07:27:31', '2017-07-09 07:27:31', 'redsys', NULL, NULL, 'Javier Corwin', '181'),
+(81, 'rwe', 'rwe', NULL, '2017-07-09', '2017-07-16', NULL, NULL, 30.00, '2017-07-09 07:27:54', '2017-07-09 07:27:54', 'redsys', NULL, NULL, 'Javier Corwin', '181'),
+(82, 'saDASDASDAS', 'sa', NULL, '2017-07-02', '2017-07-09', NULL, NULL, 30.00, '2017-07-09 07:28:32', '2017-07-09 07:28:32', 'redsys', NULL, NULL, 'Javier Corwin', '181'),
+(83, 'maria', 'lalalalal', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 07:29:55', '2017-07-09 07:29:55', 'redsys', NULL, NULL, 'Susan Franecki', '176'),
+(84, 'ewr', 'rwe', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 07:37:01', '2017-07-09 07:42:30', 'paypal', NULL, 'PAY-9EF801291A0525623LFQ7SQQ', 'Nolan Spinka', '199'),
+(85, 'paco', 'pop', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 07:43:47', '2017-07-09 07:49:37', 'redsys', NULL, 'eyJEc19EYXRlIjoiMDklMkYwNyUyRjIwMTciLCJEc19Ib3VyIjoiMTElM0E0NCIsIkRzX1NlY3VyZVBheW1lbnQiOiIwIiwiRHNfQW1vdW50IjoiNjg1MjAwIiwiRHNfQ3VycmVuY3kiOiI5NzgiLCJEc19PcmRlciI6IjE0OTk1OTM0MjkiLCJEc19NZXJjaGFudENvZGUiOiI5OTkwMDg4ODEiLCJEc19UZXJtaW5hbCI6IjAwMSIsIkRzX1Jlc3BvbnNlIjoiMDAwMCIsIkRzX1RyYW5zYWN0aW9uVHlwZSI6IjAiLCJEc19NZXJjaGFudERhdGEiOiIiLCJEc19BdXRob3Jpc2F0aW9uQ29kZSI6IjMzNjQyMiIsIkRzX0NhcmRfTnVtYmVyIjoiNDU0ODgxKioqKioqMDAwNCIsIkRzX0NvbnN1bWVyTGFuZ3VhZ2UiOiIxIiwiRHNfQ2FyZF9Db3VudHJ5IjoiNzI0IiwiRHNfQ2FyZF9CcmFuZCI6IjEifQ==', 'Mrs. Chelsea Steuber', '203'),
+(86, 'paparruchas', 'lallaala', NULL, '2017-07-09', '2017-07-23', NULL, NULL, 30.00, '2017-07-09 07:50:36', '2017-07-09 07:50:55', 'paypal', NULL, 'PAY-6LA42310R6665720MLFQ7Y4I', 'Susan Franecki', '176'),
+(87, 'cocococo', 'cocococo', NULL, '2017-07-09', '2017-07-29', NULL, NULL, 30.00, '2017-07-09 07:51:30', '2017-07-09 07:51:47', 'redsys', NULL, 'eyJEc19EYXRlIjoiMDklMkYwNyUyRjIwMTciLCJEc19Ib3VyIjoiMTElM0E1MSIsIkRzX1NlY3VyZVBheW1lbnQiOiIwIiwiRHNfQW1vdW50IjoiNjg1MjAwIiwiRHNfQ3VycmVuY3kiOiI5NzgiLCJEc19PcmRlciI6IjE0OTk1OTM4OTIiLCJEc19NZXJjaGFudENvZGUiOiI5OTkwMDg4ODEiLCJEc19UZXJtaW5hbCI6IjAwMSIsIkRzX1Jlc3BvbnNlIjoiMDAwMCIsIkRzX1RyYW5zYWN0aW9uVHlwZSI6IjAiLCJEc19NZXJjaGFudERhdGEiOiIiLCJEc19BdXRob3Jpc2F0aW9uQ29kZSI6IjMzNjQ0NCIsIkRzX0NhcmRfTnVtYmVyIjoiNDU0ODgxKioqKioqMDAwNCIsIkRzX0NvbnN1bWVyTGFuZ3VhZ2UiOiIxIiwiRHNfQ2FyZF9Db3VudHJ5IjoiNzI0IiwiRHNfQ2FyZF9CcmFuZCI6IjEifQ==', 'Javier Corwin', '181');
 
 -- --------------------------------------------------------
 
@@ -135,7 +233,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2017_07_07_053528_create_table_hoteles', 2),
 (4, '2017_07_07_062249_agregar_campos_table_hoteles', 3),
 (5, '2017_07_07_090356_create_table_bookings', 4),
-(6, '2017_07_07_091934_adding_price_table_hoteles', 5);
+(6, '2017_07_07_091934_adding_price_table_hoteles', 5),
+(7, '2017_07_09_043702_add_fields_to_booking_table', 6),
+(8, '2017_07_09_051550_add_more_tables_to_booking_table', 7);
 
 -- --------------------------------------------------------
 
@@ -218,7 +318,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 --
 -- AUTO_INCREMENT de la tabla `hoteles`
 --
@@ -228,7 +328,7 @@ ALTER TABLE `hoteles`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
