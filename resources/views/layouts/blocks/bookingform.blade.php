@@ -27,8 +27,8 @@
 		<select  class="form-control" name="type_of_payment" id="type_of_payment">
 			<option class="form-control" type="radio" name="paypal" value="paypal" checked>Pay with Paypal</option>
 			<option class="form-control"  type="radio" name="redsys" value="redsys" checked>Pay with Redsys</option>
-  			<option type="radio" name="booking" value="booking"> Only Booking</option>			
-		</select>
+<!--   			<option type="radio" name="booking" value="booking"> Only Booking</option>			
+ -->		</select>
 
 
 	    </div>
